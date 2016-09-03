@@ -5,10 +5,16 @@ import { Link } from 'react-router';
 
 const Answer = React.createClass({
   render() {
+    const categoryId = this.props.params.categoryId
+    const clueId = this.props.params.clueId
+    const clue = this.props.categories[categoryId].clues[clueId]
     return (
-      <div className="single-answer">
-        {this.props.categories.length}
-        i am a little answer! when I pop up, the player manager should add appropriate +/- buttons, and also display the correct answer...somewhere?
+      <div className="game-board">
+        <div className="answer">
+          Q: {clue.question}
+          <br />
+          A: What is {clue.answer}
+        </div>
       </div>
     )
   }
