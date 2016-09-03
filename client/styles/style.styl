@@ -5,8 +5,9 @@ body
   background offwhite
 
 .game-board
-  margin-left 50px
-  margin-right 50px
+  margin 0 auto
+  width 720px
+  height 720px
   background-color blue
 
 .category-column
@@ -19,8 +20,7 @@ body
   color white
 
 .category-clue
-  font-size 40px
-  text-align center
+  font-size 30px
   color yellow
   a:link
     text-decoration none
@@ -29,12 +29,21 @@ body
     color yellow
 
 .category-item
-  text-align center
-  height 100px
+  display flex
+  justify-content center
+  align-items center
+  height 120px
+  width 120px
   border 1px solid black
+  padding 15px
 
 .answer
+  display flex
+  justify-content center
+  align-items center
   text-align center
+  height 100%
+  width 100%
   font-size 50px
   color white
 
