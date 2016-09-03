@@ -16,7 +16,8 @@ const defaultState = {
   players
 };
 
-const store = createStore(rootReducer, defaultState);
+// TODO: add dev/prod logic to ensure this doesn't "go live", lol
+const store = createStore(rootReducer, defaultState, window.devToolsExtension && window.devToolsExtension());
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
