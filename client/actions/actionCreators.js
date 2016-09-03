@@ -17,10 +17,10 @@ export function decrement (playerId, amount) {
   }
 }
 
-export function answerClue (categoryId, answerValue) {
+export function answerClue (categoryIndex, answerValue) {
   return {
     type: 'ANSWER_CLUE',
-    categoryId,
+    categoryIndex,
     answerValue
   }
 }
