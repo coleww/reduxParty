@@ -2,7 +2,7 @@
 // the reducer determines how that action updates the state (WITHOUT MUTATING EVER NO MUTATIONS NO NO NO)
 
 function categories (state = [], action) {
-  console.log(state, action);
+  // switch (action.type)
 
   return state;
 }
