@@ -17,6 +17,7 @@ const Category = React.createClass({
         </div>
         {category.clues.map((clue, j) =>
           <Clue {...this.props} key={j} categoryIndex={i} clueIndex={j} clue={clue} />)}
+        <div className="clearfix">&nbsp;</div>
       </div>
     )
   }
