@@ -17,11 +17,11 @@ export function decrement (playerId, amount) {
   }
 }
 
-export function answerClue (categoryIndex, answerValue) {
+export function answerClue (categoryIndex, clueIndex) {
   return {
     type: 'ANSWER_CLUE',
     categoryIndex,
-    answerValue
+    clueIndex
   }
 }
 

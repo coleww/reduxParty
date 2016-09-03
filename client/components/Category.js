@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Clue from './clue'
 
 // a single column of the game board.
 // TODO: make the clues be their own component
@@ -14,31 +15,8 @@ const Category = React.createClass({
         <div className="category-title category-item">
           {category.title}
         </div>
-        <div className="category-clue category-item">
-          <Link onClick={this.props.answerClue.bind(null, i, 200)} to={`/category/${i}/value/${200}`}>
-            $200
-          </Link>
-        </div>
-        <div className="category-clue category-item">
-          <Link onClick={this.props.answerClue.bind(null, i, 400)} to={`/category/${i}/value/${400}`}>
-            $400
-          </Link>
-        </div>
-        <div className="category-clue category-item">
-          <Link onClick={this.props.answerClue.bind(null, i, 600)} to={`/category/${i}/value/${600}`}>
-            $600
-          </Link>
-        </div>
-        <div className="category-clue category-item">
-          <Link onClick={this.props.answerClue.bind(null, i, 800)} to={`/category/${i}/value/${800}`}>
-            $800
-          </Link>
-        </div>
-        <div className="category-clue category-item">
-          <Link onClick={this.props.answerClue.bind(null, i, 1000)} to={`/category/${i}/value/${1000}`}>
-            $1000
-          </Link>
-        </div>
+        {category.clues.map((clue, j) =>
+          <Clue {...this.props} key={j} categoryIndex={i} clueIndex={j} clue={clue} />)}
       </div>
     )
   }

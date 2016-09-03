@@ -4,13 +4,19 @@
 function categories (state = [], action) {
   switch (action.type) {
     case 'ANSWER_CLUE':
-      const i = action.categoryIndex
-      const category = state[i]
-      const updatedClues = category.clues.map((clue) => clue.value === action.answerValue ? {...clue, answered: true} : clue)
+      const categoryIndex = action.categoryIndex
+      const category = state[categoryIndex]
+      const clueIndex = action.clueIndex
+      const clue = category.clues[clueIndex]
+      const updatedClues = [
+        ...category.clues.slice(0, clueIndex),
+        {...clue, answered: true},
+        ...category.clues.slice(clueIndex + 1)
+      ]
       return [
-        ...state.slice(0, i),
+        ...state.slice(0, categoryIndex),
         {...category, clues: updatedClues},
-        ...state.slice(i + 1)
+        ...state.slice(categoryIndex + 1)
       ]
     default:
       return state
