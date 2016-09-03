@@ -1,18 +1,18 @@
 // react-router-redux will handle things like switching from the game board to an answer
 
 // if a player answers the answer
-export function increment (index, amount) {
+export function increment (playerId, amount) {
   return {
     type: 'INCREMENT_WINNINGS',
-    index,
+    playerId,
     amount
   }
 }
 
-export function decrement (index, amount) {
+export function decrement (playerId, amount) {
   return {
     type: 'DECREMENT_WINNINGS',
-    index,
+    playerId,
     amount
   }
 }

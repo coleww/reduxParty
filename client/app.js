@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import css from './styles/style.styl';
 
 // components
-import Main from './components/Main';
+import App from './components/App';
 import GameBoard from './components/GameBoard'; // main game grid, basically a collection of categories
 import Answer from './components/Answer'; // Displaying a single Clue (maybe thats a better word?) given a category and a $$$ amount
 import PlayerManager from './components/PlayerManager'; // contains several player components, allows for adding/deducting the money
@@ -13,12 +13,12 @@ import PlayerManager from './components/PlayerManager'; // contains several play
 import { Router, Route, IndexRoute } from 'react-router';
 
 import { Provider } from 'react-redux';
-import store, { history } from './store'
+import store, { history } from './store';
 
 const router = (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Main}>
+      <Route path="/" component={App}>
         <IndexRoute component={GameBoard}></IndexRoute>
         <Route path="/category/:categoryId/value/:value" component={Answer}></Route>
       </Route>
