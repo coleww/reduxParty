@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
-
+import Player from './Player'
 // a single column of the game board.
 
 const PlayerManager = React.createClass({
   render() {
+    console.log(this.props, "HEYYY")
+    var players = this.props.players
     return (
-      <div className="players-interface">
-        I am the player manager, i should be rendering out 3 player components here. maybe you can add/delete players? that might be cool too!
+      <div className="player-manager">
+        {players.map((player, i) =>
+            <Player {...this.props} key={i} playerIndex={i} player={player} />)}
       </div>
     )
   }

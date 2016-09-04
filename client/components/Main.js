@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import PlayerManager from './PlayerManager';
 
 const Main = React.createClass({
   render() {
@@ -9,6 +10,7 @@ const Main = React.createClass({
           <Link to="/">JEOPARDY</Link>
         </h1>
         {React.cloneElement(this.props.children, this.props)}
+        <PlayerManager {...this.props} />
       </div>
     )
   }
