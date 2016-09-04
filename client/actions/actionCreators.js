@@ -17,6 +17,21 @@ export function decrement (playerId, amount) {
   }
 }
 
+export function editName (playerId) {
+  return {
+    type: 'EDIT_NAME',
+    playerId
+  }
+}
+
+export function updateName (playerId, newName) {
+  return {
+    type: 'UPDATE_NAME',
+    playerId,
+    newName
+  }
+}
+
 export function answerClue (categoryIndex, clueIndex) {
   return {
     type: 'ANSWER_CLUE',
