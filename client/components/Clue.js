@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-// a single column of the game board.
-// TODO: make the clues be their own component
-// TODO: make the clue values be variable (round 2, etc.)
-
 const Category = React.createClass({
   render() {
     const clue = this.props.clue

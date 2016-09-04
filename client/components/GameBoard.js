@@ -1,6 +1,5 @@
 import React from 'react';
 import Category from './category'
-// basically just a container for categories
 
 const GameBoard = React.createClass({
   render() {
