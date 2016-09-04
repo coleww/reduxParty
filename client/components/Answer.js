@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 // given a category and a $value, should grab the corresponding answer
 

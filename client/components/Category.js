@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import Clue from './clue'
 
 // a single column of the game board.
