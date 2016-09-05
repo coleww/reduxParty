@@ -2,7 +2,7 @@ require('testdom')('<html><body></body></html>')
 import expect from 'expect'
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Answer from '../client/components/Answer'
+import Answer from '../../client/components/Answer'
 
 function setup() {
   const props = {
