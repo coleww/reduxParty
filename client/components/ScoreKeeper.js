@@ -1,11 +1,10 @@
 import React from 'react';
 
-// when clicking deduct: deactivate that player, subtract that money. if no player left active, navigate to '/'
-// when clicking assign: deactivate all players, assign that player the money, navigate to '/'
-
-
 const ScoreKeeper = React.createClass({
   render() {
+    // if we aren't on an Answer route, we shouldn't render the scorekeeper at all
+    // seems hack-ish. but otherwise the gameBoard will throw errors if there are active players still
+    if (!this.props.params.categoryIdx) return null
     const categoryIdx = this.props.params.categoryIdx;
     const clueIdx = this.props.params.clueIdx;
     const clue = this.props.categories[categoryIdx].clues[clueIdx];

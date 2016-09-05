@@ -45,3 +45,9 @@ export function activatePlayers () {
     type: 'ACTIVATE_PLAYERS'
   }
 }
+
+export function deactivatePlayers () {
+  return {
+    type: 'DEACTIVATE_PLAYERS'
+  }
+}

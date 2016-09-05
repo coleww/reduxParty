@@ -2,6 +2,9 @@ import React from 'react';
 import Category from './category'
 
 const GameBoard = React.createClass({
+  componentWillMount () {
+    this.props.deactivatePlayers();
+  },
   render() {
     return (
       <div className="game-board">

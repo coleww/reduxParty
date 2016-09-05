@@ -44,6 +44,9 @@ function updatePlayers (state = [], action) {
     case 'ACTIVATE_PLAYERS':
       return state.map((player) => {
                         return {...player, active: true}})
+    case 'DEACTIVATE_PLAYERS':
+      return state.map((player) => {
+                        return {...player, active: false}})
     default:
       return state
   }
