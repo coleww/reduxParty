@@ -6,9 +6,9 @@ import React from 'react';
 
 const ScoreKeeper = React.createClass({
   render() {
-    const categoryId = this.props.params.categoryId;
-    const clueId = this.props.params.clueId;
-    const clue = this.props.categories[categoryId].clues[clueId];
+    const categoryIdx = this.props.params.categoryIdx;
+    const clueIdx = this.props.params.clueIdx;
+    const clue = this.props.categories[categoryIdx].clues[clueIdx];
     return (
       <div className="player-score-keeper">
         <button className="player-score-subtract" onClick={this.props.decrementScore.bind(null, this.props.player.id, clue.value)}>-</button>

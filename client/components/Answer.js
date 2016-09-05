@@ -5,9 +5,9 @@ const Answer = React.createClass({
     this.props.activatePlayers();
   },
   render() {
-    const categoryId = this.props.params.categoryId;
-    const clueId = this.props.params.clueId;
-    const clue = this.props.categories[categoryId].clues[clueId];
+    const categoryIdx = this.props.params.categoryIdx;
+    const clueIdx = this.props.params.clueIdx;
+    const clue = this.props.categories[categoryIdx].clues[clueIdx];
     return (
       <div className="game-board">
         <div className="answer">
