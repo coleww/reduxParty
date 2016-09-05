@@ -12,7 +12,7 @@ const Category = React.createClass({
       const categoryIndex = this.props.categoryIndex
       const clueIndex = this.props.clueIndex
       clueLink = (
-        <Link onClick={this.props.answerClue.bind(null, categoryIndex, clueIndex)} to={`/category/${categoryIndex}/clue/${clueIndex}`}>
+        <Link className="clue-value" onClick={this.props.answerClue.bind(null, categoryIndex, clueIndex)} to={`/category/${categoryIndex}/clue/${clueIndex}`}>
           ${clue.value}
         </Link>
       )
