@@ -1,7 +1,7 @@
 
 // reducer for editing a single player, action has playerId on it
 function updatePlayer (state = [], action) {
-  const i = state.findIndex(player => player.id === action.playerId)
+  const i = state.findIndex((player) => player.id === action.playerId)
   const player = state[i]
   switch (action.type) {
     case 'EDIT_NAME':
@@ -24,7 +24,7 @@ function updatePlayer (state = [], action) {
       ]
       // a player answered correctly, round is over, deactivate all scorekeepers
       // TODO: should this just run updatePlayers with a DEACTIVATE_PLAYERS action?
-      return incrementedState.map(player => {
+      return incrementedState.map((player) => {
         return {...player, active: false}
       })
     case 'DECREMENT_SCORE':
@@ -42,7 +42,7 @@ function updatePlayer (state = [], action) {
 function updatePlayers (state = [], action) {
   switch (action.type) {
     case 'ACTIVATE_PLAYERS':
-      return state.map(player => {
+      return state.map((player) => {
                         return {...player, active: true}})
     default:
       return state
