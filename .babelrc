@@ -22,6 +22,12 @@
         ["transform-object-rest-spread"],
         ["transform-react-display-name"]
       ]
+    },
+    "test": {
+      "plugins": [
+        ["transform-object-rest-spread"],
+        ["transform-react-display-name"]
+      ]
     }
   }
 }

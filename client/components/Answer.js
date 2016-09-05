@@ -10,10 +10,10 @@ const Answer = React.createClass({
     const clue = this.props.categories[categoryIdx].clues[clueIdx];
     return (
       <div className="game-board">
-        <div className="answer">
-          Q: {clue.question}
+        <div className="clue">
+          <div className="clue-question">Q: {clue.question}</div>
           <br />
-          A: What is {clue.answer}
+          <div className="clue-answer">A: What is {clue.answer}</div>
         </div>
       </div>
     )
