@@ -32,11 +32,11 @@ export function updateName (playerId, newName) {
   }
 }
 
-export function answerClue (categoryIndex, clueIndex) {
+export function answerClue (categoryIdx, clueIdx) {
   return {
     type: 'ANSWER_CLUE',
-    categoryIndex,
-    clueIndex
+    categoryIdx,
+    clueIdx
   }
 }
 

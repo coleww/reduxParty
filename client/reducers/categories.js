@@ -4,19 +4,21 @@
 function categories (state = [], action) {
   switch (action.type) {
     case 'ANSWER_CLUE':
-      const categoryIndex = action.categoryIndex
-      const category = state[categoryIndex]
-      const clueIndex = action.clueIndex
-      const clue = category.clues[clueIndex]
+      const categoryIdx = action.categoryIdx
+      const category = state[categoryIdx]
+      const clueIdx = action.clueIdx
+      const clue = category.clues[clueIdx]
+
+      // TODO: use reducer composition here to handle updating a clues array
       const updatedClues = [
-        ...category.clues.slice(0, clueIndex),
+        ...category.clues.slice(0, clueIdx),
         {...clue, answered: true},
-        ...category.clues.slice(clueIndex + 1)
+        ...category.clues.slice(clueIdx + 1)
       ]
       return [
-        ...state.slice(0, categoryIndex),
+        ...state.slice(0, categoryIdx),
         {...category, clues: updatedClues},
-        ...state.slice(categoryIndex + 1)
+        ...state.slice(categoryIdx + 1)
       ]
     default:
       return state
