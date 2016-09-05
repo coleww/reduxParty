@@ -8,7 +8,8 @@
     "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
     "clean": "rimraf dist",
     "start": "node devServer.js",
-    "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos"
+    "test": "mocha ./test --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch"
   },
   "author": "Cole Willsea",
   "license": "MIT",
@@ -47,9 +48,10 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "devDependencies": {
+    "babel-register": "^6.14.0",
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
-    "mocha": "^2.4.5",
+    "mocha": "^2.5.3",
     "react-addons-test-utils": "^15.0.2"
   }
 }
