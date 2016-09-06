@@ -8,7 +8,8 @@ import css from './styles/style.styl';
 import App from './components/App';
 import GameBoard from './components/GameBoard'; // main game grid, basically a collection of categories
 import Answer from './components/Answer'; // Displaying a single Clue (maybe thats a better word?) given a category and a $$$ amount
-import PlayerManager from './components/PlayerManager'; // contains several player components, allows for adding/deducting the money
+import GameDisplay from './components/GameDisplay';
+import Welcome from './components/Welcome';
 
 import { Router, Route, IndexRoute } from 'react-router';
 
@@ -19,8 +20,11 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={GameBoard}></IndexRoute>
-        <Route path="/category/:categoryIdx/clue/:clueIdx" component={Answer}></Route>
+        <IndexRoute component={Welcome}></IndexRoute>
+        <Route path="game" component={GameDisplay}>
+          <IndexRoute component={GameBoard}></IndexRoute>
+          <Route path="category/:categoryIdx/clue/:clueIdx" component={Answer}></Route>
+        </Route>
       </Route>
     </Router>
   </Provider>

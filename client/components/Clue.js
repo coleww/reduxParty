@@ -13,7 +13,7 @@ const Category = React.createClass({
       const categoryIndex = this.props.categoryIndex;
       const clueIndex = this.props.clueIndex;
       clueLink = (
-        <Link className="clue-value" onClick={this.props.answerClue.bind(null, categoryIndex, clueIndex)} to={{pathname: `/category/${categoryIndex}/clue/${clueIndex}`, query: {...this.props.location.query}}} >
+        <Link className="clue-value" onClick={this.props.answerClue.bind(null, categoryIndex, clueIndex)} to={{pathname: `game/category/${categoryIndex}/clue/${clueIndex}`, query: {...this.props.location.query}}} >
           ${clue.value}
         </Link>
       );

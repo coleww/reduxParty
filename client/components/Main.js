@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
-import PlayerManager from './PlayerManager';
 
 const Main = React.createClass({
   render() {
+    const { children, ...rest } = this.props;
     return (
       <div>
         <h1 className="title">
-          <Link to={{pathname: "/", query: this.props.location.query}}>JEOPARDY</Link>
+          <Link to={{pathname: "/game", query: this.props.location.query}}>JEOPARDY</Link>
         </h1>
-        {React.cloneElement(this.props.children, this.props)}
-        <PlayerManager {...this.props} />
+        {React.cloneElement(children, rest)}
       </div>
     );
   }

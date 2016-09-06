@@ -7,7 +7,7 @@ const GameBoard = React.createClass({
   },
   render() {
     return (
-      <div className="game-board">
+      <div className="game-display">
         {this.props.categories.map((category, i) =>
           <Category {...this.props} key={i} i={i} category={category} />)}
       </div>
