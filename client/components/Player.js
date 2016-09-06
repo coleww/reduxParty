@@ -14,7 +14,7 @@ const Player = React.createClass({
     if (player.editing) {
       playerName = (
         <form onSubmit={this.updateName}>
-          <input ref="playerName" autoFocus placeholder={player.name} />
+          <input ref="playerName" autoFocus placeholder={player.name} className="player-name-edit"/>
         </form>)
     } else {
       playerName = (
