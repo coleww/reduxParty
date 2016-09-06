@@ -8,7 +8,7 @@ function mapStateToProps (state) {
     players: state.players,
     categories: state.categories,
     answers: state.answers
-  }
+  };
 }
 
 function mapDispatchToProps (dispatch) {
@@ -18,4 +18,4 @@ function mapDispatchToProps (dispatch) {
 // magically bind the store/dispatch to our main component. MARVELOUS
 const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
-export default App
+export default App;

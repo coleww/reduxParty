@@ -16,7 +16,7 @@ const Answer = React.createClass({
           <div className="clue-answer">A: What is {clue.answer}</div>
         </div>
       </div>
-    )
+    );
   }
 });
 

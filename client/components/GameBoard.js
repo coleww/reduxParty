@@ -1,5 +1,5 @@
 import React from 'react';
-import Category from './category'
+import Category from './category';
 
 const GameBoard = React.createClass({
   componentWillMount () {
@@ -11,7 +11,7 @@ const GameBoard = React.createClass({
         {this.props.categories.map((category, i) =>
           <Category {...this.props} key={i} i={i} category={category} />)}
       </div>
-    )
+    );
   }
 });
 

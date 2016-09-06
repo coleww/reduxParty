@@ -15,19 +15,22 @@ const Player = React.createClass({
       playerName = (
         <form onSubmit={this.updateName}>
           <input ref="playerName" autoFocus placeholder={player.name} className="player-name-edit"/>
-        </form>)
+        </form>
+      );
     } else {
       playerName = (
         <div onClick={this.props.editName.bind(null, this.props.player.id)} className="player-name">
           {player.name}
         </div>
-      )
+      );
     }
 
     // logic for showing/hiding the score keeper buttons
-    let scoreKeeping
+    let scoreKeeping;
     if (player.active) {
-      scoreKeeping = (<ScoreKeeper className="player-score-keeper" player={player} {...this.props} />)
+      scoreKeeping = (
+        <ScoreKeeper className="player-score-keeper" player={player} {...this.props} />
+      );
     }
 
     return (
@@ -38,7 +41,7 @@ const Player = React.createClass({
         </div>
         {scoreKeeping}
       </div>
-    )
+    );
   }
 });
 

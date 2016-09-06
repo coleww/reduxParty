@@ -6,7 +6,7 @@ export function incrementScore (playerId, amount) {
     type: 'INCREMENT_SCORE',
     playerId,
     amount
-  }
+  };
 }
 
 export function decrementScore (playerId, amount) {
@@ -14,14 +14,14 @@ export function decrementScore (playerId, amount) {
     type: 'DECREMENT_SCORE',
     playerId,
     amount
-  }
+  };
 }
 
 export function editName (playerId) {
   return {
     type: 'EDIT_NAME',
     playerId
-  }
+  };
 }
 
 export function updateName (playerId, newName) {
@@ -29,7 +29,7 @@ export function updateName (playerId, newName) {
     type: 'UPDATE_NAME',
     playerId,
     newName
-  }
+  };
 }
 
 export function answerClue (categoryIdx, clueIdx) {
@@ -37,17 +37,17 @@ export function answerClue (categoryIdx, clueIdx) {
     type: 'ANSWER_CLUE',
     categoryIdx,
     clueIdx
-  }
+  };
 }
 
 export function activatePlayers () {
   return {
     type: 'ACTIVATE_PLAYERS'
-  }
+  };
 }
 
 export function deactivatePlayers () {
   return {
     type: 'DEACTIVATE_PLAYERS'
-  }
+  };
 }
