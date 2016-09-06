@@ -11,6 +11,9 @@ function setup(opts) {
     clue: {
       answered: opts.answered,
       value: 100
+    },
+    location: {
+      query: {}
     }
   }
 

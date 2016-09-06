@@ -17,6 +17,9 @@ function setup() {
           value: 200
         }
       ]
+    },
+    location: {
+      query: {}
     }
   }
 
