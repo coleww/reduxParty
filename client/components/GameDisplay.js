@@ -1,6 +1,6 @@
 import React from 'react';
 import PlayerManager from './PlayerManager';
-
+import { Link } from 'react-router';
 const GameDisplay = React.createClass({
   render() {
     return (
@@ -9,6 +9,7 @@ const GameDisplay = React.createClass({
           {React.cloneElement(this.props.children, this.props)}
         </div>
         <PlayerManager {...this.props} />
+        <Link to={{pathname: "/game", query: {display: true}}}>see display!</Link>
       </div>
     );
   }

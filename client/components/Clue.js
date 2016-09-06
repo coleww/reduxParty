@@ -9,7 +9,6 @@ const Category = React.createClass({
     // but also the internet generally seems confused as to how this should be done inside JSX, so..., let's roll with it B)
     let clueLink;
     if (!clue.answered) {
-      console.log(this.props.location.query)
       const categoryIndex = this.props.categoryIndex;
       const clueIndex = this.props.clueIndex;
       clueLink = (

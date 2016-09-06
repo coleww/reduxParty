@@ -12,7 +12,7 @@ import GameDisplay from './components/GameDisplay';
 import Welcome from './components/Welcome';
 
 import { Router, Route, IndexRoute } from 'react-router';
-
+import createStorageListener from './localStorageListener'
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
@@ -29,5 +29,10 @@ const router = (
     </Router>
   </Provider>
 );
+
+const isDisplayBoard = window.location.search.match(/display/)
+if (isDisplayBoard) {
+  window.addEventListener('storage', createStorageListener(store));
+}
 
 render(router, document.getElementById('root'));
