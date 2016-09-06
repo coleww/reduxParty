@@ -26,7 +26,10 @@ function setup(opts) {
           }
         ]
       }
-    ]
+    ],
+    location: {
+      query: opts.query || {}
+    }
   }
 
   const enzymeWrapper = mount(<ScoreKeeper {...props} />)
@@ -39,7 +42,7 @@ function setup(opts) {
 describe('components', () => {
   describe('ScoreKeeper', () => {
     it('should render a + button that increments a players score', () => {
-      const { props, enzymeWrapper } = setup();
+      const { props, enzymeWrapper } = setup({});
       const button = enzymeWrapper.find('.player-score-add');
       expect(button.text()).toBe('+');
       button.simulate('click');
@@ -48,7 +51,7 @@ describe('components', () => {
     })
 
     it('should render a - button that decrements a players score', () => {
-      const { props, enzymeWrapper } = setup();
+      const { props, enzymeWrapper } = setup({});
       const button = enzymeWrapper.find('.player-score-subtract');
       expect(button.text()).toBe('-');
       button.simulate('click');
@@ -61,9 +64,19 @@ describe('components', () => {
         params: {
           categoryIdx: undefined
         }
-      }
-      const blankComponent = shallow(<ScoreKeeper {...notAnAnswerProps} />)
-      expect(blankComponent.html()).toBe(null)
+      };
+      const blankComponent = shallow(<ScoreKeeper {...notAnAnswerProps} />);
+      expect(blankComponent.html()).toBe(null);
+    })
+
+    it('should not render anything if on a "display" tab', () => {
+      const displayTabProps = {
+        query: {
+          display: true
+        }
+      };
+      const { enzymeWrapper } = setup(displayTabProps);
+      expect(enzymeWrapper.html()).toBe(null);
     })
   })
 })

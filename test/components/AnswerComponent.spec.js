@@ -4,7 +4,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Answer from '../../client/components/Answer'
 
-function setup() {
+function setup(opts) {
   const props = {
     activatePlayers: expect.createSpy(),
     params: {
@@ -22,7 +22,10 @@ function setup() {
           }
         ]
       }
-    ]
+    ],
+    location: {
+      query: opts.query || {}
+    }
   }
 
   const enzymeWrapper = shallow(<Answer {...props} />)
@@ -36,7 +39,7 @@ function setup() {
 describe('components', () => {
   describe('Answer', () => {
     it('should render out a clue', () => {
-      const { enzymeWrapper } = setup();
+      const { enzymeWrapper } = setup({});
 
       expect(enzymeWrapper.find('.clue-question').text()).toBe('Q: does this test pass?');
 
@@ -45,9 +48,22 @@ describe('components', () => {
     })
 
     it('should call activatePlayers', () => {
-      const { props } = setup();
+      const { props } = setup({});
       mount(<Answer {...props} />)
       expect(props.activatePlayers.calls.length).toBe(1);
+    })
+
+    it('should render the question but not the answer when on a display route', () => {
+      const { enzymeWrapper } = setup({
+        query: {
+          display: true
+        }
+      });
+
+      expect(enzymeWrapper.find('.clue-question').text()).toBe('Q: does this test pass?');
+
+      expect(enzymeWrapper.find('.clue-answer').length).toBe(0);
+
     })
   })
 })

@@ -5,6 +5,8 @@ const ScoreKeeper = React.createClass({
     // if we aren't on an Answer route, we shouldn't render the scorekeeper at all
     // seems hack-ish. but otherwise the gameBoard will throw errors if there are active players still
     if (typeof this.props.params.categoryIdx === 'undefined') return null;
+    // if we are in a display tab, we also don't want to render a scoreKeeper
+    if (this.props.location.query.display) return null;
     const categoryIdx = this.props.params.categoryIdx;
     const clueIdx = this.props.params.clueIdx;
     const clue = this.props.categories[categoryIdx].clues[clueIdx];
