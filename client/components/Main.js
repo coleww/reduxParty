@@ -7,7 +7,7 @@ const Main = React.createClass({
     return (
       <div>
         <h1 className="title">
-          <Link to="/">JEOPARDY</Link>
+          <Link to={{pathname: "/", query: this.props.location.query}}>JEOPARDY</Link>
         </h1>
         {React.cloneElement(this.props.children, this.props)}
         <PlayerManager {...this.props} />

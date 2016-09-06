@@ -9,10 +9,11 @@ const Category = React.createClass({
     // but also the internet generally seems confused as to how this should be done inside JSX, so..., let's roll with it B)
     let clueLink;
     if (!clue.answered) {
+      console.log(this.props.location.query)
       const categoryIndex = this.props.categoryIndex;
       const clueIndex = this.props.clueIndex;
       clueLink = (
-        <Link className="clue-value" onClick={this.props.answerClue.bind(null, categoryIndex, clueIndex)} to={`/category/${categoryIndex}/clue/${clueIndex}`}>
+        <Link className="clue-value" onClick={this.props.answerClue.bind(null, categoryIndex, clueIndex)} to={{pathname: `/category/${categoryIndex}/clue/${clueIndex}`, query: {...this.props.location.query}}} >
           ${clue.value}
         </Link>
       );
