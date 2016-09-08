@@ -69,7 +69,7 @@ export function isFetchingCategories () {
 export function fetchCategories () {
   return function (dispatch) {
       dispatch(isFetchingCategories())
-      return fetch('http://localhost:3000/api/new_game.json')
+      return fetch(process.env.API_URL)
         .then(response => response.json())
         .then(json => {
           dispatch(receiveCategories(json));

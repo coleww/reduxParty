@@ -14,7 +14,13 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': "'development'",
+        'API_URL': "'http://localhost:3000/api/new_game.json'"
+      }
+    })
   ],
   module: {
     loaders: [
