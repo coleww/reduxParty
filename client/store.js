@@ -1,23 +1,32 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
-import createStorageMiddleware from './localStorageMiddleware';
+import createStorageSyncMiddleware from './middleware/localStorageSyncMiddleware';
+import ReduxThunk from 'redux-thunk';
 
 import rootReducer from './reducers/index';
 
 import categories from './data/categories';
 import players from './data/players';
+import gameState from './data/gameState';
 
-const defaultState = {
+import { loadState } from './middleware/localStoragePersistence'
+
+const blankState = {
   categories,
-  players
+  players,
+  gameState
 };
 
-const localStorageMiddleware  = applyMiddleware(createStorageMiddleware())
-const enhancers = compose(localStorageMiddleware, window.devToolsExtension && window.devToolsExtension())
+const defaultState = loadState() || blankState
+
+const middleware  = applyMiddleware(ReduxThunk, createStorageSyncMiddleware())
+const enhancers = compose(middleware, window.devToolsExtension && window.devToolsExtension())
 
 // TODO: add dev/prod logic to ensure this doesn't "go live", lol
 const store = createStore(rootReducer, defaultState, enhancers);
+
+
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

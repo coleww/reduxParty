@@ -1,5 +1,6 @@
-export default function createStorageListener(store) {
+export default function createStorageSyncListener(store) {
   return (event) => {
+    if (event.key !== 'JEOPARDY-SYNC') return
     const {action} = JSON.parse(event.newValue);
     if (action.type === "@@router/LOCATION_CHANGE") {
       // we must do this to preserve the queryParams state for the display board
