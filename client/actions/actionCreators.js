@@ -1,4 +1,5 @@
-// react-router-redux will handle things like switching from the game board to an answer
+import fetch from 'isomorphic-fetch';
+import { push } from 'react-router-redux';
 
 // if a player answers the answer
 export function incrementScore (playerId, amount) {
@@ -51,3 +52,30 @@ export function deactivatePlayers () {
     type: 'DEACTIVATE_PLAYERS'
   };
 }
+
+export function receiveCategories (categories) {
+  return {
+    type: 'RECEIVE_CATEGORIES',
+    categories: categories
+  };
+}
+
+export function isFetchingCategories () {
+  return {
+    type: 'FETCHING_CATEGORIES'
+  };
+}
+
+export function fetchCategories () {
+  return function (dispatch) {
+      dispatch(isFetchingCategories())
+      return fetch('http://localhost:3000/api/new_game.json')
+        .then(response => response.json())
+        .then(json => {
+          dispatch(receiveCategories(json));
+          dispatch(push('./game'));
+          // TODO: handle errors here! probably just display a message to try re-fetching
+        })
+    }
+}
+

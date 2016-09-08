@@ -20,6 +20,29 @@ function categories (state = [], action) {
         {...category, clues: updatedClues},
         ...state.slice(categoryIdx + 1)
       ];
+
+    case 'RECEIVE_CATEGORIES':
+      return action.categories.map((category) => {
+        const sortedClues = category.clues.sort((clueA, clueB) => {
+          if (clueA.value < clueB.value) {
+            return -1;
+          } else if (clueA.value > clueB.value) {
+            return 1;
+          } else {
+            return 0
+          }
+        })
+        const standardizedClues = sortedClues.map((clue, i) => {
+          return {
+            ...clue,
+            value: (i + 1) * 200
+          }
+        })
+        return {
+          ...category,
+          clues: standardizedClues
+        }
+      })
     default:
       return state;
   }

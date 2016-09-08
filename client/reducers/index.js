@@ -7,7 +7,8 @@ import { routerReducer } from 'react-router-redux';
 
 import players from './players';
 import categories from './categories';
+import gameState from './gameState';
 
-const rootReducer = combineReducers({players, categories, routing: routerReducer});
+const rootReducer = combineReducers({players, categories, gameState, routing: routerReducer});
 
 export default rootReducer;
