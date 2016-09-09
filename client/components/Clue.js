@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 const Category = React.createClass({
   answerClue () {
@@ -6,7 +7,7 @@ const Category = React.createClass({
     const clueIndex = this.props.clueIndex;
     this.props.answerClue(categoryIndex, clueIndex);
     this.props.activatePlayers();
-    this.props.history.push(`game/category/${categoryIndex}/clue/${clueIndex}`);
+    this.props.router.push(`game/category/${categoryIndex}/clue/${clueIndex}`);
   },
   render() {
     const clue = this.props.clue;
@@ -27,4 +28,4 @@ const Category = React.createClass({
   }
 });
 
-export default Category;
+export default withRouter(Category);

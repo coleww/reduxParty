@@ -18,7 +18,7 @@ function setup(opts) {
     location: {
       query: {}
     },
-    history: {
+    router: {
       push: expect.createSpy()
     }
   }
@@ -49,23 +49,23 @@ describe('components', () => {
     })
 
     it('should call answerClue and activatePlayers when clicked', () => {
-      const { props, shallowWrapper } = setup({answered: false});
-      shallowWrapper.find('.clue-value').simulate('click');
+      const { props, mountedWrapper } = setup({answered: false});
+      mountedWrapper.find('.clue-value').simulate('click');
       expect(props.activatePlayers.calls.length).toBe(1);
       expect(props.answerClue.calls.length).toBe(1);
       expect(props.answerClue.calls[0].arguments.slice(0, 2)).toEqual([1, 0]);
     })
 
     it('should navigate to the selected clue', () => {
-      const { props, shallowWrapper } = setup({answered: false});
-      shallowWrapper.find('.clue-value').simulate('click');
-      expect(props.history.push.calls.length).toBe(1);
-      expect(props.history.push.calls[0].arguments[0]).toBe('game/category/1/clue/0');
+      const { props, mountedWrapper } = setup({answered: false});
+      mountedWrapper.find('.clue-value').simulate('click');
+      expect(props.router.push.calls.length).toBe(1);
+      expect(props.router.push.calls[0].arguments[0]).toBe('game/category/1/clue/0');
     })
 
     it('should not render a value/link for an answered clue', () => {
-      const { shallowWrapper } = setup({answered: true});
-      expect(shallowWrapper.find('.clue-value').length).toBe(0);
+      const { mountedWrapper } = setup({answered: true});
+      expect(mountedWrapper.find('.clue-value').length).toBe(0);
     })
   })
 })
