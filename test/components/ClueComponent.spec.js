@@ -20,6 +20,9 @@ function setup(opts) {
     },
     router: {
       push: expect.createSpy()
+    },
+    location: {
+      query: opts.query || {}
     }
   }
 
@@ -45,11 +48,19 @@ describe('components', () => {
       expect(props.answerClue.calls[0].arguments.slice(0, 2)).toEqual([1, 0]);
     })
 
-    it('should navigate to the selected clue', () => {
+    it('should navigate to the selected clue when clicked', () => {
       const { props, enzymeWrapper } = setup({answered: false});
       enzymeWrapper.find('.clue-value').simulate('click');
       expect(props.router.push.calls.length).toBe(1);
       expect(props.router.push.calls[0].arguments[0]).toBe('game/category/1/clue/0');
+    })
+
+    it('should do nothing when selected clue is clicked on a display router', () => {
+      const { props, enzymeWrapper } = setup({answered: false, query: {display: true}});
+      enzymeWrapper.find('.clue-value').simulate('click');
+      expect(props.router.push.calls.length).toBe(0);
+      expect(props.activatePlayers.calls.length).toBe(0);
+      expect(props.answerClue.calls.length).toBe(0);
     })
 
     it('should not render a value/link for an answered clue', () => {

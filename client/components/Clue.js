@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 
 const Category = React.createClass({
   answerClue () {
+    if (this.props.location.query.display) return;
     const categoryIndex = this.props.categoryIndex;
     const clueIndex = this.props.clueIndex;
     this.props.answerClue(categoryIndex, clueIndex);
