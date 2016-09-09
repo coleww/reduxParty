@@ -1,9 +1,5 @@
 import React from 'react';
-
 const Answer = React.createClass({
-  componentDidMount () {
-    this.props.activatePlayers();
-  },
   render() {
     const categoryIdx = this.props.params.categoryIdx;
     const clueIdx = this.props.params.clueIdx;
