@@ -6,7 +6,6 @@ import Answer from '../../client/components/Answer'
 
 function setup(opts) {
   const props = {
-    activatePlayers: expect.createSpy(),
     params: {
       categoryIdx: 0,
       clueIdx: 0
@@ -45,12 +44,6 @@ describe('components', () => {
 
       expect(enzymeWrapper.find('.clue-answer').text()).toBe('A: What is i sure hope so!');
 
-    })
-
-    it('should call activatePlayers', () => {
-      const { props } = setup({});
-      mount(<Answer {...props} />)
-      expect(props.activatePlayers.calls.length).toBe(1);
     })
 
     it('should render the question but not the answer when on a display route', () => {

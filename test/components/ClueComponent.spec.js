@@ -7,13 +7,19 @@ import Clue from '../../client/components/Clue'
 
 function setup(opts) {
   const props = {
+    categoryIndex: 1,
+    clueIndex: 0,
     answerClue: expect.createSpy(),
+    activatePlayers: expect.createSpy(),
     clue: {
       answered: opts.answered,
       value: 100
     },
     location: {
       query: {}
+    },
+    history: {
+      push: expect.createSpy()
     }
   }
 
@@ -42,11 +48,19 @@ describe('components', () => {
       expect(mountedWrapper.find('.clue-value').text()).toBe('$100');
     })
 
-    // TODO: how the heck do you set up react-router to work in tests?
-    it('should call answerClue when clicked', () => {
+    it('should call answerClue and activatePlayers when clicked', () => {
       const { props, shallowWrapper } = setup({answered: false});
-      shallowWrapper.find('.clue-value').simulate('click')
+      shallowWrapper.find('.clue-value').simulate('click');
+      expect(props.activatePlayers.calls.length).toBe(1);
       expect(props.answerClue.calls.length).toBe(1);
+      expect(props.answerClue.calls[0].arguments.slice(0, 2)).toEqual([1, 0]);
+    })
+
+    it('should navigate to the selected clue', () => {
+      const { props, shallowWrapper } = setup({answered: false});
+      shallowWrapper.find('.clue-value').simulate('click');
+      expect(props.history.push.calls.length).toBe(1);
+      expect(props.history.push.calls[0].arguments[0]).toBe('game/category/1/clue/0');
     })
 
     it('should not render a value/link for an answered clue', () => {

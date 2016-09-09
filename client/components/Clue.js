@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { history } from '../store';
 
 const Category = React.createClass({
   answerClue () {
@@ -8,7 +6,7 @@ const Category = React.createClass({
     const clueIndex = this.props.clueIndex;
     this.props.answerClue(categoryIndex, clueIndex);
     this.props.activatePlayers();
-    history.push(`game/category/${categoryIndex}/clue/${clueIndex}`);
+    this.props.history.push(`game/category/${categoryIndex}/clue/${clueIndex}`);
   },
   render() {
     const clue = this.props.clue;
