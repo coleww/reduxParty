@@ -4,9 +4,9 @@
 function gameState (state = {}, action) {
   switch (action.type) {
     case 'FETCHING_CATEGORIES':
-      return {...state, fetching: true}
+      return {...state, fetching: true};
     case 'RECEIVE_CATEGORIES':
-      return {...state, fetching: false}
+      return {...state, fetching: false};
     default:
       return state;
   }

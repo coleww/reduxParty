@@ -56,7 +56,7 @@ export function deactivatePlayers () {
 export function receiveCategories (categories) {
   return {
     type: 'RECEIVE_CATEGORIES',
-    categories: categories
+    categories
   };
 }
 
@@ -68,14 +68,14 @@ export function isFetchingCategories () {
 
 export function fetchCategories () {
   return function (dispatch) {
-      dispatch(isFetchingCategories())
-      return fetch(process.env.API_URL)
-        .then(response => response.json())
-        .then(json => {
-          dispatch(receiveCategories(json));
-          dispatch(push('./game'));
-          // TODO: handle errors here! probably just display a message to try re-fetching
-        })
-    }
+    dispatch(isFetchingCategories());
+    return fetch(process.env.API_URL)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch(receiveCategories(json));
+        dispatch(push('./game'));
+        // TODO: handle errors here! probably just display a message to try re-fetching
+      });
+  };
 }
 

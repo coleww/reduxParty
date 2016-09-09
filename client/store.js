@@ -10,7 +10,7 @@ import categories from './data/categories';
 import players from './data/players';
 import gameState from './data/gameState';
 
-import { loadState } from './middleware/localStoragePersistence'
+import { loadState } from './middleware/localStoragePersistence';
 
 const blankState = {
   categories,
@@ -18,10 +18,9 @@ const blankState = {
   gameState
 };
 
-const defaultState = loadState() || blankState
-
-const middleware  = applyMiddleware(ReduxThunk, createStorageSyncMiddleware())
-const enhancers = compose(middleware, window.devToolsExtension && window.devToolsExtension())
+const defaultState = loadState() || blankState;
+const middleware  = applyMiddleware(ReduxThunk, createStorageSyncMiddleware());
+const enhancers = compose(middleware, window.devToolsExtension && window.devToolsExtension());
 
 // TODO: add dev/prod logic to ensure this doesn't "go live", lol
 const store = createStore(rootReducer, defaultState, enhancers);
