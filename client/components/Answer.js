@@ -1,5 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+
 const Answer = React.createClass({
+  backToBoard () {
+    this.props.router.push('/game');
+  },
   render() {
     const categoryIdx = this.props.params.categoryIdx;
     const clueIdx = this.props.params.clueIdx;
@@ -11,7 +16,7 @@ const Answer = React.createClass({
       );
     }
     return (
-      <div className="clue">
+      <div className="clue" onClick={this.backToBoard}>
         <div className="clue-question">Q: {clue.question}</div>
         {answer}
       </div>
@@ -19,4 +24,4 @@ const Answer = React.createClass({
   }
 });
 
-export default Answer;
+export default withRouter(Answer);

@@ -14,6 +14,9 @@ function setup(opts) {
       editing: opts.editing,
       active: false,
       score: 500
+    },
+    location: {
+      query: {}
     }
   }
 

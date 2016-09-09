@@ -27,7 +27,7 @@ function setup(opts) {
     }
   }
 
-  const enzymeWrapper = shallow(<Answer {...props} />)
+  const enzymeWrapper = mount(<Answer {...props} />)
 
   return {
     props,

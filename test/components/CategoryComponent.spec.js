@@ -33,9 +33,9 @@ function setup() {
 
 describe('components', () => {
   describe('Category', () => {
-    it('should render the category title', () => {
+    it('should render the category title uppercased', () => {
       const { enzymeWrapper } = setup();
-      expect(enzymeWrapper.find('.category-title').text()).toBe('test!');
+      expect(enzymeWrapper.find('.category-title').text()).toBe('TEST!');
     })
 
     it('should render its beautiful clue children', () => {

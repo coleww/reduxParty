@@ -49,6 +49,10 @@ function updatePlayers (state = [], action) {
       return state.map((player) => {
         return {...player, active: false};
       });
+    case 'RESET_PLAYERS':
+      return state.map((player, i) => {
+        return {...player, score: 0, name: `Player ${i + 1}`};
+      });
     default:
       return state;
   }

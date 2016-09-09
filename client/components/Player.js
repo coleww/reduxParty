@@ -2,16 +2,20 @@ import React from 'react';
 import ScoreKeeper from './scoreKeeper';
 
 const Player = React.createClass({
-  updateName(e) {
+  updateName (e) {
     e.preventDefault();
     this.props.updateName(this.props.player.id, this.refs.playerName.value);
   },
-  render() {
+  editName () {
+    if (this.props.location.query.display) return;
+    this.props.editName(this.props.player.id);
+  },
+  render () {
     const player = this.props.player;
 
     // logic for editing the user's name
     let playerName;
-    if (player.editing) {
+    if (player.editing && !this.props.location.query.display) {
       playerName = (
         <form onSubmit={this.updateName}>
           <input ref="playerName" autoFocus placeholder={player.name} className="player-name-edit"/>
@@ -19,7 +23,7 @@ const Player = React.createClass({
       );
     } else {
       playerName = (
-        <div onClick={this.props.editName.bind(null, this.props.player.id)} className="player-name">
+        <div onClick={this.editName} className="player-name">
           {player.name}
         </div>
       );

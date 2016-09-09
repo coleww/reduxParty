@@ -12,7 +12,8 @@ function setup(opts) {
     gameState: {
       fetching: opts.fetching
     },
-    fetchCategories: expect.createSpy()
+    fetchCategories: expect.createSpy(),
+    resetPlayers: expect.createSpy()
   }
 
   const enzymeWrapper = mount(<Host {...props} />)
@@ -40,12 +41,13 @@ describe('components', () => {
       expect(enzymeWrapper.html()).toBe(null);
     })
 
-    it('should call fetchCategories when the button is clicked', () => {
+    it('should call fetchCategories and resetPlayers when the button is clicked', () => {
       const { props, enzymeWrapper } = setup({});
       const button = enzymeWrapper.find('.fetch-categories');
-      expect(button.text()).toBe('Start new round with random categories');
+      expect(button.text()).toBe('Start a new game with random categories');
       button.simulate('click');
       expect(props.fetchCategories.calls.length).toBe(1);
+      expect(props.resetPlayers.calls.length).toBe(1);
     })
 
     it('should show loading message when fetching data', () => {

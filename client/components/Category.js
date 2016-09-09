@@ -8,7 +8,7 @@ const Category = React.createClass({
     return (
       <div className="category-column">
         <div className="category-title category-item">
-          {category.title}
+          {category.title.toUpperCase()}
         </div>
         {category.clues.map((clue, j) =>
           <Clue {...this.props} key={j} categoryIndex={i} clueIndex={j} clue={clue} />)}

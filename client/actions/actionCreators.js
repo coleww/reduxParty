@@ -53,6 +53,12 @@ export function deactivatePlayers () {
   };
 }
 
+export function resetPlayers () {
+  return {
+    type: 'RESET_PLAYERS'
+  };
+}
+
 export function receiveCategories (categories) {
   return {
     type: 'RECEIVE_CATEGORIES',

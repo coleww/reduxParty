@@ -6,9 +6,7 @@ const Main = React.createClass({
     const { children, ...rest } = this.props;
     return (
       <div>
-        <h1 className="title">
-          <Link to={{pathname: '/game', query: this.props.location.query}}>JEOPARDY</Link>
-        </h1>
+        <br />
         {React.cloneElement(children, rest)}
       </div>
     );
