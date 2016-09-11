@@ -1,7 +1,10 @@
 # REDUX-PARDY
 
 
-A simple React + Redux implementation of Jeopardy
+A React + Redux implementation of Jeopardy. Uses localStorage to persist app state across browser tabs, allowing the "host" to see answers and assign points, while the "players" would only see the game board and questions.
+
+![App demo](/demo.gif)
+
 
 App skeleton based off of [Learn Redux](https://learnredux.com)
 
