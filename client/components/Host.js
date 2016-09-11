@@ -10,12 +10,12 @@ const Host = React.createClass({
           Open display tab
         </Link>
         <br />
-        <br />
         <button className="fetch-categories" onClick={this.props.fetchCategories.bind(null)}>
-          'Load new categories'
+          Load new categories
         </button>
+        <br />
         <button className="reset-players" onClick={this.props.resetPlayers.bind(null)}>
-          'Reset players'
+          Reset players
         </button>
 
       </div>
