@@ -1,5 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { push } from 'react-router-redux';
+import categoryData from '../data/categories';
+import shuffle from 'array-shuffle';
 
 // if a player answers the answer
 export function incrementScore (playerId, amount) {
@@ -73,10 +75,14 @@ export function isFetchingCategories () {
 }
 
 export function fetchCategories () {
+  // awful hack to get the browser tab sync to work.
+  // actually...it is technically sort of identical to what happens when we fetch the data from the API?
   return {
-    type: 'FETCH_CATEGORIES'
+    type: 'FETCH_CATEGORIES',
+    categories: shuffle(categoryData).slice(0, 6)
   };
-  // NOTE: deploying the fork of jService would cost way too much for this demo project,
+
+  // NOTE: deploying the fork of jService would cost way too much money/time for this demo project,
   // and the main API does not support the methods we would need to grab game data efficiently
   // leaving the thunk code here for reference =^.^=
 

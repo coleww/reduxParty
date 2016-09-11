@@ -1,6 +1,3 @@
-import categoryData from '../data/categories';
-import shuffle from 'array-shuffle';
-
 // reducer accepts an action and the current state of the app
 // the reducer determines how that action updates the state (WITHOUT MUTATING EVER NO MUTATIONS NO NO NO)
 
@@ -25,7 +22,7 @@ function categories (state = [], action) {
       ];
 
     case 'FETCH_CATEGORIES':
-      return shuffle(categoryData).slice(0, 6);
+      return action.categories;
 
     case 'RECEIVE_CATEGORIES':
       return action.categories.map((category) => {
