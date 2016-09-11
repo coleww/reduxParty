@@ -73,15 +73,22 @@ export function isFetchingCategories () {
 }
 
 export function fetchCategories () {
-  return function (dispatch) {
-    dispatch(isFetchingCategories());
-    return fetch(process.env.API_URL)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch(receiveCategories(json));
-        dispatch(push('./game'));
-        // TODO: handle errors here! probably just display a message to try re-fetching
-      });
+  return {
+    type: 'FETCH_CATEGORIES'
   };
+  // NOTE: deploying the fork of jService would cost way too much for this demo project,
+  // and the main API does not support the methods we would need to grab game data efficiently
+  // leaving the thunk code here for reference =^.^=
+
+  // return function (dispatch) {
+  //   dispatch(isFetchingCategories());
+  //   return fetch(process.env.API_URL)
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       dispatch(receiveCategories(json));
+  //       dispatch(push('./game'));
+  //       // TODO: handle errors here! probably just display a message to try re-fetching
+  //     });
+  // };
 }
 

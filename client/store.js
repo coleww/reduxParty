@@ -10,10 +10,12 @@ import categories from './data/categories';
 import players from './data/players';
 import gameState from './data/gameState';
 
+import shuffle from 'array-shuffle';
+
 import { loadState } from './middleware/localStoragePersistence';
 
 const blankState = {
-  categories,
+  categories: shuffle(categories).slice(0, 6),
   players,
   gameState
 };
