@@ -8,7 +8,7 @@
     "lint": "eslint ./client",
     "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive ./test ",
     "clean": "rimraf dist",
-    "start": "node devServer.js",
+    "start": "node server.js",
     "test:watch": "npm test -- --watch"
   },
   "author": "Cole Willsea",
@@ -29,6 +29,7 @@
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-react": "^5.0.1",
     "express": "^4.13.4",
+    "history": "^4.0.0",
     "isomorphic-fetch": "^2.2.1",
     "raven-js": "^2.3.0",
     "react": "^15.0.2",
