@@ -14,7 +14,7 @@ if(process.env.NODE_ENV !== 'production') {
 
   app.use(require('webpack-hot-middleware')(compiler));
 } else {
-  app.use(express.static(__dirname + '/dist'))
+  app.use(express.static(__dirname + 'dist'))
 }
 
 
