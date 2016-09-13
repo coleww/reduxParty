@@ -13,7 +13,10 @@ if(process.env.NODE_ENV !== 'production') {
   }));
 
   app.use(require('webpack-hot-middleware')(compiler));
+} else {
+  app.use(express.static(__dirname + '/dist'))
 }
+
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
